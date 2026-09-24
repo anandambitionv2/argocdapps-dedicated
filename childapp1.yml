@@ -1,0 +1,19 @@
+#argocdapp.yml 
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-customerapp1
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/anandambitionv2/customerapplication1.git
+    targetRevision: main
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
