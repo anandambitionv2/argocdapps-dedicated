@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: customerapphelmbased
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: "oci://acrwinter.azurecr.io/helm"
+    chart: "helm-nginx"
+    targetRevision: 0.30.0
+
+    
+
+  destination:
+    name:  https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+   
