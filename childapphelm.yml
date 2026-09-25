@@ -8,7 +8,7 @@ spec:
   project: default
 
   source:
-    repoURL: "oci://acrwinter.azurecr.io/helm"
+    repoURL: "acrwinter.azurecr.io/helm"
     chart: "helm-nginx"
     targetRevision: 0.30.0
 
