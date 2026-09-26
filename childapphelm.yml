@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: "acrwinter.azurecr.io/helm"
     chart: "helm-nginx"
-    targetRevision: 0.31.0
+    targetRevision: 0.32.0
 
     
 
