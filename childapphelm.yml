@@ -7,12 +7,17 @@ metadata:
 spec:
   project: default
 
-  source:
-    repoURL: "acrwinter.azurecr.io/helm"
-    chart: "helm-nginx"
-    targetRevision: 0.35.0
+  sources:
+    - repoURL: "acrwinter.azurecr.io/helm"
+      chart: "helm-nginx"
+      targetRevision: 0.35.0
+      helm:
+        valueFiles:
+          - production/values.yaml
 
-    
+    - repoURL: "https://github.com/myorg/my-values-repo.git"
+      targetRevision: main
+      ref: values
 
   destination:
     server: https://kubernetes.default.svc
