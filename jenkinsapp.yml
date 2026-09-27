@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkinsapphelmbased
+  namespace: argocd
+
+spec:
+  project: default
+
+  sources:
+       # Jenkins Helm chart
+    - repoURL: https://charts.jenkins.io
+      chart: jenkins
+      targetRevision: 5.9.64
+      helm:
+        valueFiles:
+          - $jenkins/jenkins/values.yaml
+
+    # Jenkins values + namespace
+    - repoURL: https://github.com/anandambitionv2/jenkinsoverridefile.git
+      targetRevision: main
+      ref: jenkins
+
+    # Namespace manifest
+    - repoURL: https://github.com/anandambitionv2/jenkinsoverridefile.git
+      targetRevision: main
+      path: .
+      directory:
+        recurse: false
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+   
