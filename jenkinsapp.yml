@@ -24,7 +24,7 @@ spec:
     # Namespace manifest
     - repoURL: https://github.com/anandambitionv2/jenkinsoverridefile.git
       targetRevision: main
-      path: .
+      path: createmanifests
       directory:
         recurse: false
 
