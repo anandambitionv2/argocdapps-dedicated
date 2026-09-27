@@ -17,7 +17,7 @@ spec:
 
     - repoURL: https://github.com/anandambitionv2/onlyvaluesyaml.git
       targetRevision: main
-      ref: $production
+      ref: production
 
   destination:
     server: https://kubernetes.default.svc
