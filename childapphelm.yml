@@ -15,7 +15,7 @@ spec:
         valueFiles:
           - production/values.yaml
 
-    - repoURL: "https://github.com/anandambitionv2/onlyvaluesyaml.git
+    - repoURL: https://github.com/anandambitionv2/onlyvaluesyaml.git
       targetRevision: main
       ref: values
 
